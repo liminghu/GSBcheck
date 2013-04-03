@@ -97,8 +97,7 @@ public class GSBCheck {
 		In this example, the server responses with the state of the queried URLs one by one in the response body, 
 		in the same order as in the request.
 	 */
-	public static void isMalicious() throws IOException
-	{
+	public static void isMalicious() throws IOException {
 		   //Safe Browsing Lookup API
 		   //https://developers.google.com/safe-browsing/lookup_guide
 		   String baseURL="https://sb-ssl.google.com/safebrowsing/api/lookup";
@@ -120,7 +119,7 @@ public class GSBCheck {
 		   // Get a URLConnection object, to write to POST method
 		   URLConnection connect = url.openConnection();
 
-		   // Specify connection settings
+		   //Specify connection settings
 		   connect.setDoInput(true);
 		   connect.setDoOutput(true);
 
@@ -139,8 +138,7 @@ public class GSBCheck {
 		   String inputLine;
 
            int lineCount = 0; // limit the lines for the example
-           while ((lineCount < 5) && ((inputLine = in.readLine()) != null)) 
-               {
+           while ((lineCount < 5) && ((inputLine = in.readLine()) != null)) {
                    lineCount++;
                    result += inputLine;
                }
@@ -169,12 +167,10 @@ public class GSBCheck {
 		//System.out.println(output);
 		
 		System.out.println("Google safe browsing query API result:");
-		if(output.equals("malware") || output.equals("phishing") || output.equals("phishing,malware"))
-		{
+		if(output.equals("malware") || output.equals("phishing") || output.equals("phishing,malware")) {
 		  System.out.println(subjectURL+" is " + output+".");
 		}
-		else
-		{
+		else {
 			  System.out.println(subjectURL+" is ok.");
 		}
 		
@@ -185,26 +181,22 @@ public class GSBCheck {
 		
 		//System.out.println(output2);
 		
-		
-		if(output2.equals("malware") || output2.equals("phishing") || output2.equals("phishing,malware"))
-		{
+		if(output2.equals("malware") || output2.equals("phishing") || output2.equals("phishing,malware")) {
 		  System.out.println(subjectURL+" is " + output2+".");
 		}
-		else
-		{
+		else {
 		  System.out.println(subjectURL+" is ok.");
 		}
 		
 		try {
 			isMalicious();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		/*
 		   0 to wait before next update
-		   SELECT DISTINCT Hostkey, Count FROM "goog-malware-shavar_add_hosts" WHERE Hostkey = '292e6556'
+		   SELECT DISTINCT Hostkey, Count FROM "goog-malware-shavar_add_hosts"  WHERE Hostkey = '292e6556'
            SELECT DISTINCT Hostkey, Count FROM "googpub-phish-shavar_add_hosts" WHERE Hostkey = '292e6556'
 		 */
 		
@@ -248,6 +240,5 @@ public class GSBCheck {
 		       System.out.println(gsbDirtyDomain); 
 		}
 		
-				
 	}
 }
