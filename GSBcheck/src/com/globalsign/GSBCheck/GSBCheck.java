@@ -43,27 +43,21 @@ public class GSBCheck {
 		            BufferedReader in;
 		            HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
 		            urlConn.setConnectTimeout(1000);
-		            while(true)
-		            {
-		                try 
-		                    {
+		            while(true) {
+		                try {
 		                     in = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
 		                    } 
-		                catch (IOException e) 
-		                    {
+		                catch (IOException e) {
 		                        break;
 		                    }
-
 
 		                String inputLine;
 
 		                int lineCount = 0; // limit the lines for the example
-		                while ((lineCount < 5) && ((inputLine = in.readLine()) != null)) 
-		                    {
-		                        lineCount++;
-
-		                        result += inputLine;
-		                    }
+		                while ((lineCount < 5) && ((inputLine = in.readLine()) != null)) {
+		                	lineCount++;
+		                    result += inputLine;
+		                	}
 
 		                in.close();
 		                urlConn.disconnect();
