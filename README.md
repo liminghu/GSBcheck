@@ -1,7 +1,7 @@
 GSBcheck
 ========
 
-Google Safe Browsing API: java+PostgreSQL
+Google Safe Browsing API: java+PostgreSQL database
 
 The code is modified from:
 
