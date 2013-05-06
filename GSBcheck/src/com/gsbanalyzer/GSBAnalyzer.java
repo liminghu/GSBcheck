@@ -54,7 +54,7 @@ public class GSBAnalyzer {
 	public final int ID_GOOGPUB_PHISH_SHAVAR = 4;
 
 	//DB 
-	private Connection con;
+	public Connection con;
 	private String prefix;
 	private String dbUrl;
 	private String dbUsername;
@@ -229,6 +229,15 @@ public class GSBAnalyzer {
 		return res;
 	}
 
+	protected void finalize() throws Throwable  
+    {  
+        try { con.close(); } 
+        catch (SQLException e) { 
+            e.printStackTrace();
+        }
+        super.finalize();  
+    }
+	
 	private String doFullLookup(List<GSBEntry> matchingPrefixes) {
 		String url = this.gsbUrl+"/gethash?client=api"+"&apikey="+gsbKey+"&appver="+gsbAppVersion+"&pver="+gsbApiVersion;
 		return GSBURLUtil.downloadFullHash(url, matchingPrefixes);

@@ -161,10 +161,10 @@ public class GSBCheck {
 		
 		String output = null;
 		String baseURL = "https://sb-ssl.google.com/safebrowsing/api/lookup?client=demo-app&apikey=ABQIAAAAJITJMgA23cKFczNFmGOKfhQVNDY5dS3MozaSszWw6_ovAoZkwQ&appver=1.5.2&pver=3.0&url=";
-		String subjectURL = "http://ianfette.org/";
+		String subjectURL = "facebooook.axfree.com/";//"http://ianfette.org/";
 		output = getHttpResponseRabby(baseURL+subjectURL);
 		
-		//System.out.println(output);
+		System.out.println(output);
 		
 		System.out.println("Google safe browsing query API result:");
 		if(output.equals("malware") || output.equals("phishing") || output.equals("phishing,malware")) {
@@ -179,7 +179,7 @@ public class GSBCheck {
 		subjectURL = "http://globalsign.com/";
 		output2 = getHttpResponseRabby(baseURL+subjectURL);
 		
-		//System.out.println(output2);
+		System.out.println(output2);
 		
 		if(output2.equals("malware") || output2.equals("phishing") || output2.equals("phishing,malware")) {
 		  System.out.println(subjectURL+" is " + output2+".");
