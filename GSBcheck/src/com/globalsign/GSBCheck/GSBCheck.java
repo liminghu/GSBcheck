@@ -152,7 +152,7 @@ public class GSBCheck {
 	
 	public static void main(String[] args) throws PSQLException   {
 		
-		String DB_DRIVER = "org.postgresql.Driver";
+		//String DB_DRIVER = "org.postgresql.Driver";
 		String DB_CONNECTION = "jdbc:postgresql://localhost/postgres"; 
 		String DB_USER = "postgres";
 		String DB_PASSWORD = "password";
